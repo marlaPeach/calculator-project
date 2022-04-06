@@ -8,5 +8,47 @@
     </head>
     <body>
         <!-- Fill in html here -->
+        <!--Centered calculator-->
+        <div class="calculator">
+            <!--input labels-->
+            <div class="row">
+                <!--number inputs-->
+                <div class="input-wrapper">
+                    <!--input label-->
+                    <label id="firstNumberLabel">First Number</label>
+                    <!--input box-->
+                    <input id="firstNumber" type="text"/>
+                </div>
+                <div class="input-wrapper">
+                    <!--input label-->
+                    <label id="secondNumberLabel">Second Number</label>
+                    <!--input box-->
+                    <input id="secondNumber" type="text"/>
+                </div>
+            </div>
+            <div id="radio-buttons" class="row">
+                <!--radio buttons for operator-->
+                <!--Add-->
+                <input id="add" name="operator" type="radio" value="add" checked="true" required=""/>
+                <label for="add">Add</label>
+                <!--Subtract-->
+                <input id="subtract" name="operator" type="radio" value="subtract" required=""/>
+                <label for="subtract">Subtract</label>
+                <!--Multiply-->
+                <input id="multiply" name="operator" type="radio" value="multiply" required=""/>
+                <label for="multiply">Multiply</label>
+                <!--Divide-->
+                <input id="divide" name="operator" type="radio" value="divide" required=""/>
+                <label for="divide">Divide</label>
+            </div>
+            <div class="row">
+                <!--Calculate & Clear buttons-->
+                <span><button id="submitButton" type="submit" onclick="calculate()">=</button><button id="clearButton" type="reset" onclick="clearValues()">Clear</button></span>
+            </div>
+            <div class="row">
+                <!--Result Text-->
+                <label id="result-text"></label>
+            </div>
+        </div>
     </body>
 </html>
