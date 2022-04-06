@@ -3,6 +3,7 @@ let calc;
 
 function CreateCalculator() {
     //create new calculator ()
+    var validate = /^[0-9]/;
     let firstNumber = document.getElementById("firstNumber").value;
     let secondNumber = document.getElementById("secondNumber").value;
     let operator = getOperator();

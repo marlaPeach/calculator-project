@@ -13,9 +13,9 @@ class Calculator {
 
     // determine the current operation's label
     getAction() {
-        var operators = document.getElementsByName("operator");
-        let labelValue = operators.filter(this.operator).value;
-        console.log(labelValue);   
+        // var operators = document.getElementsByName("operator");
+        // let labelValue = operators.filter(this.operator).value;
+        // console.log(labelValue);   
     }
 
     // performa a calculation based on the currently selected operation
