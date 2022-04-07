@@ -12,9 +12,21 @@ class Calculator {
     }
 
     // determine the current operation's label
-    getAction(event) {
-        let labelValue = event.target.value;
-        return labelValue;
+    getAction() {
+        switch (this.operator) {
+            case "add":
+                return "Add";
+                break;
+            case "subtract":
+                return "Subtract"
+                break;
+            case "multiply":
+                return "Multiply"
+                break;
+            case "divide":
+                return "Divide"
+                break;
+        }
     }
 
     // performa a calculation based on the currently selected operation

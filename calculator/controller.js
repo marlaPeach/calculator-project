@@ -48,6 +48,7 @@ function calculate() {
                 break;
         }
     }
+    console.log(calc.getAction());
 }
 
 /**
