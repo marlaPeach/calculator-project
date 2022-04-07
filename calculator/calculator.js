@@ -13,7 +13,7 @@ class Calculator {
 
     // determine the current operation's label
     getAction(event) {
-        let labelValue = event.currentTarget.firstChildElement.value;
+        let labelValue = event.target.value;
         return labelValue;
     }
 
@@ -58,6 +58,7 @@ class Calculator {
         {
             this.attemptedDivideByZero = true;
         } else {
+            this.attemptedDivideByZero = false;
             this.value = this.firstNumber / this.secondNumber;
         }
     }

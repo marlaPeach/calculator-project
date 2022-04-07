@@ -24,33 +24,29 @@ function CreateCalculator() {
 // perform a calculation when the operator button is clicked
 function calculate() {
     CreateCalculator();
-    if(calc.firstNumber && calc.secondNumber)
+    calc.operate();
+    if(calc.attemptedDivideByZero === true)
     {
-        calc.operate();
-        if(calc.attemptedDivideByZero === true)
+        window.alert('Cannot divide by zero. Please choose another value.');
+    } else {
+        switch (calc.operator)
         {
-            window.warn("Cannot divide by zero. Please enter a new number.");
-        } else {
-            switch (calc.operator)
-            {
-                case "add":
-                    operator = "added to"
-                    this.updateResultText(`The result of ${calc.firstNumber} ${operator} ${calc.secondNumber} is ${calc.value}`);
-                    break;
-                case "subtract":
-                    this.updateResultText(`The result of ${calc.firstNumber} ${operator} ${calc.secondNumber} is ${calc.value}`);
-                    break;
-                case "multiply":
-                    operator = "multiplied by";
-                    this.updateResultText(`The result of ${calc.firstNumber} ${operator} ${calc.secondNumber} is ${calc.value}`);
-                    break;
-                case "divide":
-                    operator = "divided by";
-                    this.updateResultText(`The result of ${calc.firstNumber} ${operator} ${calc.secondNumber} is ${calc.value}`);
-                    break;
-            }
+            case "add":
+                operator = "added to"
+                this.updateResultText(`The result of ${calc.firstNumber} ${operator} ${calc.secondNumber} is ${calc.value}`);
+                break;
+            case "subtract":
+                this.updateResultText(`The result of ${calc.firstNumber} ${operator} ${calc.secondNumber} is ${calc.value}`);
+                break;
+            case "multiply":
+                operator = "multiplied by";
+                this.updateResultText(`The result of ${calc.firstNumber} ${operator} ${calc.secondNumber} is ${calc.value}`);
+                break;
+            case "divide":
+                operator = "divided by";
+                this.updateResultText(`The result of ${calc.firstNumber} ${operator} ${calc.secondNumber} is ${calc.value}`);
+                break;
         }
-        
     }
 }
 
