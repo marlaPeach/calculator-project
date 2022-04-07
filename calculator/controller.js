@@ -3,20 +3,51 @@ let calc;
 
 function CreateCalculator() {
     //create new calculator ()
-    var validate = /^[0-9]/;
-    let firstNumber = document.getElementById("firstNumber").value;
-    let secondNumber = document.getElementById("secondNumber").value;
-    let operator = getOperator();
-    calc = new Calculator(firstNumber, secondNumber, operator);
     //define variables
+    calc = new Calculator();
+    var validate = /^[0-9]/;
+    if(document.getElementById("firstNumber").value.match(validate))
+    {
+        calc.firstNumber = parseInt(document.getElementById("firstNumber").value);
+    } else {
+        window.alert(`${document.getElementById("firstNumber").value} is not a valid number.`);
+    }
+    if(document.getElementById("secondNumber").value.match(validate))
+    {
+        calc.secondNumber = parseInt(document.getElementById("secondNumber").value);
+    } else {
+        window.alert(`${document.getElementById("secondNumber").value} is not a valid number.`);
+    }
+    calc.operator = getOperator();
 }
 
 // perform a calculation when the operator button is clicked
 function calculate() {
     CreateCalculator();
-    calc.operate();
-    this.updateResultText(`The result of ${calc.firstNumber} ${calc.operator} ${calc.secondNumber} is ${calc.value}`);
-    calc.getAction();
+    if(calc.firstNumber && calc.secondNumber)
+    {
+        calc.operate();
+        let operator = calc.getAction();
+        switch (operator)
+        {
+            case "add":
+                operator = "added to"
+                this.updateResultText(`The result of ${calc.firstNumber} ${operator} ${calc.secondNumber} is ${calc.value}`);
+                break;
+            case "subtract":
+                this.updateResultText(`The result of ${calc.firstNumber} ${operator} ${calc.secondNumber} is ${calc.value}`);
+                break;
+            case "multiply":
+                operator = "multiplied by";
+                this.updateResultText(`The result of ${calc.firstNumber} ${operator} ${calc.secondNumber} is ${calc.value}`);
+                break;
+            case "divide":
+                operator = "divided by";
+                this.updateResultText(`The result of ${calc.firstNumber} ${operator} ${calc.secondNumber} is ${calc.value}`);
+                break;
+        }
+        
+    }
 }
 
 /**
@@ -31,6 +62,7 @@ function updateResultText(value) {
 function clearValues() {
     document.getElementById("firstNumber").value = '';
     document.getElementById("secondNumber").value = '';
+    this.updateResultText('');
     document.getElementById("add").checked = true;
 }
 
@@ -42,8 +74,7 @@ function getOperator() {
     var operators = document.getElementsByName("operator");
     for(let i=0; i < operators.length; i++)
     {
-        console.log(operators[i].value);
-        if(operators[i].checked == true)
+        if(operators[i].checked === true)
         {
             return operators[i].value;
         }

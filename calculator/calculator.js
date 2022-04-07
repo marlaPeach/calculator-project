@@ -13,9 +13,16 @@ class Calculator {
 
     // determine the current operation's label
     getAction() {
-        // var operators = document.getElementsByName("operator");
-        // let labelValue = operators.filter(this.operator).value;
-        // console.log(labelValue);   
+        let labelValue = '';
+        var operators = document.getElementsByName("operator");
+        for(let i=0; i < operators.length; i++)
+        {
+            if(operators[i].checked === true)
+            {
+                 labelValue = operators[i].value;
+            }
+        }
+        return labelValue;
     }
 
     // performa a calculation based on the currently selected operation

@@ -48,8 +48,13 @@ input[type="text"]{
 * bold when selected, etc.
 */
 input[type="radio"]{
-    margin: 10px;
+    margin: 10px 5px 10px 15px;
 }
+
+input[type="radio"]:checked+label{
+    font-weight: bold;
+}
+
 
 button[type="submit"] {
     font-size: 12pt;
@@ -72,6 +77,12 @@ button[type="reset"] {
 }
 
 #secondNumberLabel {
+    font-weight: bold;
+}
+
+#result-text {
+    margin-top: 10px;
+    font-size: 25px;
     font-weight: bold;
 }
 
