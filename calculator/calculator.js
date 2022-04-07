@@ -63,6 +63,7 @@ class Calculator {
     divide() {
         if(this.secondNumber === 0)
         {
+            this.attemptedDivideByZero = true;
             window.alert("Cannot divide by zero. Please choose another value.");
         } else {
             this.value = this.firstNumber / this.secondNumber;
