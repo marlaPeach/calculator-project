@@ -27,8 +27,7 @@ function calculate() {
     if(calc.firstNumber && calc.secondNumber)
     {
         calc.operate();
-        let operator = calc.getAction();
-        switch (operator)
+        switch (calc.operator)
         {
             case "add":
                 operator = "added to"

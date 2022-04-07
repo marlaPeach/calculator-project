@@ -12,16 +12,8 @@ class Calculator {
     }
 
     // determine the current operation's label
-    getAction() {
-        let labelValue = '';
-        var operators = document.getElementsByName("operator");
-        for(let i=0; i < operators.length; i++)
-        {
-            if(operators[i].checked === true)
-            {
-                 labelValue = operators[i].value;
-            }
-        }
+    getAction(event) {
+        let labelValue = event.currentTarget.firstChildElement.value;
         return labelValue;
     }
 
@@ -39,6 +31,7 @@ class Calculator {
                 break;
             case "divide":
                 this.divide();
+                break;
         }
     }
 
@@ -64,7 +57,6 @@ class Calculator {
         if(this.secondNumber === 0)
         {
             this.attemptedDivideByZero = true;
-            window.alert("Cannot divide by zero. Please choose another value.");
         } else {
             this.value = this.firstNumber / this.secondNumber;
         }
