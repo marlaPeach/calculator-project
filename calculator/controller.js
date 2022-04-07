@@ -15,10 +15,10 @@ function CreateCalculator() {
     if(document.getElementById("inputNumberTwo").value.match(validate))
     {
         calc.secondNumber = parseInt(document.getElementById("inputNumberTwo").value);
+        calc.operator = getOperator();
     } else {
         window.alert(`${document.getElementById("inputNumberTwo").value} is not a valid number.`);
     }
-    calc.operator = getOperator();
 }
 
 // perform a calculation when the operator button is clicked

@@ -15,16 +15,16 @@ class Calculator {
     getAction() {
         switch (this.operator) {
             case "add":
-                return "Add";
+                return "add";
                 break;
             case "subtract":
-                return "Subtract"
+                return "subtract"
                 break;
             case "multiply":
-                return "Multiply"
+                return "multiply"
                 break;
             case "divide":
-                return "Divide"
+                return "divide"
                 break;
         }
     }
