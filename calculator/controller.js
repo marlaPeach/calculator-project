@@ -6,17 +6,17 @@ function CreateCalculator() {
     //define variables
     calc = new Calculator();
     var validate = /^[0-9]/;
-    if(document.getElementById("firstNumber").value.match(validate))
+    if(document.getElementById("inputNumberOne").value.match(validate))
     {
-        calc.firstNumber = parseInt(document.getElementById("firstNumber").value);
+        calc.firstNumber = parseInt(document.getElementById("inputNumberOne").value);
     } else {
-        window.alert(`${document.getElementById("firstNumber").value} is not a valid number.`);
+        window.alert(`${document.getElementById("inputNumberOne").value} is not a valid number.`);
     }
-    if(document.getElementById("secondNumber").value.match(validate))
+    if(document.getElementById("inputNumberTwo").value.match(validate))
     {
-        calc.secondNumber = parseInt(document.getElementById("secondNumber").value);
+        calc.secondNumber = parseInt(document.getElementById("inputNumberTwo").value);
     } else {
-        window.alert(`${document.getElementById("secondNumber").value} is not a valid number.`);
+        window.alert(`${document.getElementById("inputNumberTwo").value} is not a valid number.`);
     }
     calc.operator = getOperator();
 }
@@ -27,23 +27,28 @@ function calculate() {
     if(calc.firstNumber && calc.secondNumber)
     {
         calc.operate();
-        switch (calc.operator)
+        if(calc.attemptedDivideByZero === true)
         {
-            case "add":
-                operator = "added to"
-                this.updateResultText(`The result of ${calc.firstNumber} ${operator} ${calc.secondNumber} is ${calc.value}`);
-                break;
-            case "subtract":
-                this.updateResultText(`The result of ${calc.firstNumber} ${operator} ${calc.secondNumber} is ${calc.value}`);
-                break;
-            case "multiply":
-                operator = "multiplied by";
-                this.updateResultText(`The result of ${calc.firstNumber} ${operator} ${calc.secondNumber} is ${calc.value}`);
-                break;
-            case "divide":
-                operator = "divided by";
-                this.updateResultText(`The result of ${calc.firstNumber} ${operator} ${calc.secondNumber} is ${calc.value}`);
-                break;
+            window.warn("Cannot divide by zero. Please enter a new number.");
+        } else {
+            switch (calc.operator)
+            {
+                case "add":
+                    operator = "added to"
+                    this.updateResultText(`The result of ${calc.firstNumber} ${operator} ${calc.secondNumber} is ${calc.value}`);
+                    break;
+                case "subtract":
+                    this.updateResultText(`The result of ${calc.firstNumber} ${operator} ${calc.secondNumber} is ${calc.value}`);
+                    break;
+                case "multiply":
+                    operator = "multiplied by";
+                    this.updateResultText(`The result of ${calc.firstNumber} ${operator} ${calc.secondNumber} is ${calc.value}`);
+                    break;
+                case "divide":
+                    operator = "divided by";
+                    this.updateResultText(`The result of ${calc.firstNumber} ${operator} ${calc.secondNumber} is ${calc.value}`);
+                    break;
+            }
         }
         
     }
@@ -59,8 +64,8 @@ function updateResultText(value) {
 
 // should clear input text values and focus the first number input
 function clearValues() {
-    document.getElementById("firstNumber").value = '';
-    document.getElementById("secondNumber").value = '';
+    document.getElementById("inputNumberOne").value = '';
+    document.getElementById("inputNumberTwo").value = '';
     this.updateResultText('');
     document.getElementById("add").checked = true;
 }
