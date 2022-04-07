@@ -8,13 +8,13 @@ function CreateCalculator() {
     var validate = /^[0-9]/;
     if(document.getElementById("inputNumberOne").value.match(validate))
     {
-        calc.firstNumber = parseInt(document.getElementById("inputNumberOne").value);
+        calc.firstNumber = parseInt(document.getElementById("inputNumberOne").value, 10);
     } else {
         window.alert(`${document.getElementById("inputNumberOne").value} is not a valid number.`);
     }
     if(document.getElementById("inputNumberTwo").value.match(validate))
     {
-        calc.secondNumber = parseInt(document.getElementById("inputNumberTwo").value);
+        calc.secondNumber = parseInt(document.getElementById("inputNumberTwo").value, 10);
         calc.operator = getOperator();
     } else {
         window.alert(`${document.getElementById("inputNumberTwo").value} is not a valid number.`);
